@@ -19,8 +19,11 @@ namespace Chronos.Windows
             var cliente = new ClienteBO();
             cliente.Nome = txtNome.Text;
             cliente.Cpf = txtCpf.Text;
-            cliente.Bairro = txtCidade.Text;
-            cliente.Cidade = txtBairro.Text;
+
+            // Correção da TAREFA 01
+            cliente.Bairro = txtBairro.Text;
+            cliente.Cidade = txtCidade.Text;
+
             cliente.Endereco = txtEndereco.Text;
             cliente.NumeroEndereco = txtNumeroEndereco.Text;
             cliente.Uf = txtEstado.Text;
