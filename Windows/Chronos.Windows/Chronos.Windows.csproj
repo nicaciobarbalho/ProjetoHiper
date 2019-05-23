@@ -156,6 +156,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>hiper.mdf</DependentUpon>
     </Content>
+    <Content Include="Lista de TAREFAS - Correções de bug%27s.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
