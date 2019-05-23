@@ -1,0 +1,43 @@
+﻿@using Chronos.Web.ViewModel.Clientes
+@model ClienteGridViewModel
+
+<div class="page-header">
+    <h1>Clientes</h1>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Endereço</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Dados.Any())
+                {
+                    <tr>
+                        <td colspan="4">
+                            <p class="text-center">(não há clientes cadastrados)</p>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var cliente in Model.Dados)
+                    {
+                        <tr>
+                            <td>#@cliente.Id</td>
+                            <td>@cliente.GetCpfFormatado()</td>
+                            <td>@cliente.Nome</td>
+                            <td>@cliente.GetEnderecoCompleto()</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

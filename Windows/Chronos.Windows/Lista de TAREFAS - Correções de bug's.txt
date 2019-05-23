@@ -1,0 +1,6 @@
+﻿
+
+** Lista de bug's 
+
+	Cadastro do cliente:
+		TAREFA 01: Está inserindo cidade e bairro com dados trocados;

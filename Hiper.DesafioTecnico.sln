@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{10B90BFF-8DF3-4A4F-807D-024958775776}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Windows", "Windows\Chronos.Windows\Chronos.Windows.csproj", "{1A4B4E76-AD32-4584-BDE1-63F4DA7AE95F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Windows.Library", "Windows\Chronos.Windows.Library\Chronos.Windows.Library.csproj", "{C6D10281-2BD4-4FAD-94E9-6BC71FC86838}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{6D7DD765-0020-4DB7-8DFA-4ED9FA6DAB37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Web", "Web\Chronos.Web\Chronos.Web.csproj", "{9FBC6F11-07C1-45C8-B250-19F8C729EDCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dtos", "Dtos", "{0E56A796-5A79-481E-8324-29CBA471A71C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Dtos", "Dtos\Chronos.Dtos\Chronos.Dtos.csproj", "{B9A97CD1-ABB8-47AC-A994-0B4B13E99C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Web.Ddd", "Web\Chronos.Web.Ddd\Chronos.Web.Ddd.csproj", "{5E0D02C9-1525-4E3E-BFA7-09E09B4F5F66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Web.Api", "Web\Chronos.Web.Api\Chronos.Web.Api.csproj", "{280C35C8-A4AA-4D72-8785-1FB588D9FAD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{C2F22B7C-52A2-41D1-BD4C-5E7C028D59A5}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\Scripts_Chronos.Web.sql = Scripts\Scripts_Chronos.Web.sql
+		Scripts\Scripts_Chronos.Windows.sql = Scripts\Scripts_Chronos.Windows.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_LEIA ANTES DE COMEÇAR", "_LEIA ANTES DE COMEÇAR", "{9383E57F-8925-41D5-99B7-5C120F9D5C14}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A4B4E76-AD32-4584-BDE1-63F4DA7AE95F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A4B4E76-AD32-4584-BDE1-63F4DA7AE95F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A4B4E76-AD32-4584-BDE1-63F4DA7AE95F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A4B4E76-AD32-4584-BDE1-63F4DA7AE95F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6D10281-2BD4-4FAD-94E9-6BC71FC86838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D10281-2BD4-4FAD-94E9-6BC71FC86838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D10281-2BD4-4FAD-94E9-6BC71FC86838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D10281-2BD4-4FAD-94E9-6BC71FC86838}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FBC6F11-07C1-45C8-B250-19F8C729EDCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FBC6F11-07C1-45C8-B250-19F8C729EDCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FBC6F11-07C1-45C8-B250-19F8C729EDCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FBC6F11-07C1-45C8-B250-19F8C729EDCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9A97CD1-ABB8-47AC-A994-0B4B13E99C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9A97CD1-ABB8-47AC-A994-0B4B13E99C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9A97CD1-ABB8-47AC-A994-0B4B13E99C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9A97CD1-ABB8-47AC-A994-0B4B13E99C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E0D02C9-1525-4E3E-BFA7-09E09B4F5F66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E0D02C9-1525-4E3E-BFA7-09E09B4F5F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E0D02C9-1525-4E3E-BFA7-09E09B4F5F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E0D02C9-1525-4E3E-BFA7-09E09B4F5F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{280C35C8-A4AA-4D72-8785-1FB588D9FAD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280C35C8-A4AA-4D72-8785-1FB588D9FAD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{280C35C8-A4AA-4D72-8785-1FB588D9FAD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{280C35C8-A4AA-4D72-8785-1FB588D9FAD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1A4B4E76-AD32-4584-BDE1-63F4DA7AE95F} = {10B90BFF-8DF3-4A4F-807D-024958775776}
+		{C6D10281-2BD4-4FAD-94E9-6BC71FC86838} = {10B90BFF-8DF3-4A4F-807D-024958775776}
+		{9FBC6F11-07C1-45C8-B250-19F8C729EDCD} = {6D7DD765-0020-4DB7-8DFA-4ED9FA6DAB37}
+		{B9A97CD1-ABB8-47AC-A994-0B4B13E99C27} = {0E56A796-5A79-481E-8324-29CBA471A71C}
+		{5E0D02C9-1525-4E3E-BFA7-09E09B4F5F66} = {6D7DD765-0020-4DB7-8DFA-4ED9FA6DAB37}
+		{280C35C8-A4AA-4D72-8785-1FB588D9FAD3} = {6D7DD765-0020-4DB7-8DFA-4ED9FA6DAB37}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C86DEEFC-0CB6-49EF-9665-333A9AD4B603}
+	EndGlobalSection
+EndGlobal
