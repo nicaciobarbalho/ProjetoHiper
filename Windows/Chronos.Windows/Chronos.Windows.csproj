@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPedido.Designer.cs">
+      <DependentUpon>FormPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSincronizacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormPedido.resx">
+      <DependentUpon>FormPedido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSincronizacao.resx">
       <DependentUpon>FormSincronizacao.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +152,10 @@
     <None Include="Resources\kairc3b3s-e-cronos.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Chronos.Windows.Componentes\Chronos.Windows.Componentes.csproj">
+      <Project>{fb6d0211-213d-4b34-8b42-d7dec830db34}</Project>
+      <Name>Chronos.Windows.Componentes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Chronos.Windows.Library\Chronos.Windows.Library.csproj">
       <Project>{c6d10281-2bd4-4fad-94e9-6bc71fc86838}</Project>
       <Name>Chronos.Windows.Library</Name>

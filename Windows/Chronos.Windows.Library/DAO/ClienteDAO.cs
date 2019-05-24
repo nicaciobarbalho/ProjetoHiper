@@ -8,10 +8,10 @@ namespace Chronos.Windows.Library.DAO
 {
     public class ClienteDAO
     {
-        SqlConnection conn;
+        string connString;
         public ClienteDAO()
         {
-            this.conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Chronos.Windows.Connection"].ToString());
+            this.connString = ConfigurationManager.ConnectionStrings["Chronos.Windows.Connection"].ToString();
         }
         public int Adicionar(ClienteBO cliente)
         {
@@ -19,7 +19,7 @@ namespace Chronos.Windows.Library.DAO
             query.Append("INSERT INTO cliente (nome, cpf, endereco, numero_endereco, bairro, cidade, uf, sincronizar) ");
             query.Append("VALUES (@nome, @cpf, @endereco, @numeroEndereco, @bairro, @cidade, @uf, @sincronizar) ");
 
-            using (var conn = this.conn)
+            using (var conn = new SqlConnection(connString))
             {
                 conn.Open();
 
@@ -43,7 +43,7 @@ namespace Chronos.Windows.Library.DAO
             var query = new StringBuilder();
             query.Append("SELECT id, nome, cpf, endereco, numero_endereco, bairro, cidade, uf FROM cliente ");
 
-            using (var conn = this.conn)
+            using (var conn = new SqlConnection(connString))
             {
                 conn.Open();
 
@@ -60,7 +60,7 @@ namespace Chronos.Windows.Library.DAO
             var query = new StringBuilder();
             query.Append("SELECT id, nome, cpf, endereco, numero_endereco, bairro, cidade, uf FROM cliente WHERE sincronizar=1 ");
 
-            using (var conn = this.conn)
+            using (var conn = new SqlConnection(connString))
             {
                 conn.Open();
 
@@ -77,7 +77,7 @@ namespace Chronos.Windows.Library.DAO
             var query = new StringBuilder();
             query.Append("UPDATE cliente SET sincronizar=0 WHERE id=@id ");
 
-            using (var conn = this.conn)
+            using (var conn = new SqlConnection(connString))
             {
                 conn.Open();
 

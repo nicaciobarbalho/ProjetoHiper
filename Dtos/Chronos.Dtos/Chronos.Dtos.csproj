@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="BaseDto.cs" />
     <Compile Include="ClienteDto.cs" />
+    <Compile Include="PedidoDto.cs" />
+    <Compile Include="PedidoItemDto.cs" />
     <Compile Include="ProdutoDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

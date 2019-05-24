@@ -9,6 +9,7 @@ namespace Chronos.Dtos
         {
             Errors = Errors ?? new List<string>();
         }
+        public int Id { get; set; }
 
         public ICollection<string> Errors { get; set; }
         public bool IsValid => !Errors.Any();
