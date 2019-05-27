@@ -58,9 +58,7 @@ namespace Chronos.Windows.Library.CO
         {
             var result = new List<ClienteDto>();
 
-            var dtClientePendenteSincronizacao = new ClienteDAO().ListarPendentesSincronizacao();
-
-            foreach (DataRow dr in dtClientePendenteSincronizacao.Rows)
+            foreach (DataRow dr in new ClienteDAO().ListarPendentesSincronizacao().Rows)
             {
                 var clienteDto = new ClienteDto();
                 clienteDto.Id = int.Parse(dr["id"].ToString());
@@ -71,10 +69,43 @@ namespace Chronos.Windows.Library.CO
                 clienteDto.Bairro = dr["bairro"].ToString();
                 clienteDto.Cidade = dr["cidade"].ToString();
                 clienteDto.Cpf = dr["cpf"].ToString();
+                
                 result.Add(clienteDto);
             }
 
             return result;
+
+        }
+
+        private List<ClienteBO> CarregarCliente(DataTable clientes)
+        {
+            var result = new List<ClienteBO>();
+
+            foreach (DataRow dr in clientes.Rows)
+            {
+                var cliente = new ClienteBO();
+                cliente.Id = int.Parse(dr["id"].ToString());
+                cliente.Nome = dr["nome"].ToString();
+                cliente.Uf = dr["uf"].ToString();
+                cliente.NumeroEndereco = dr["numero_endereco"].ToString();
+                cliente.Endereco = dr["endereco"].ToString();
+                cliente.Bairro = dr["bairro"].ToString();
+                cliente.Cidade = dr["cidade"].ToString();
+                cliente.Cpf = dr["cpf"].ToString();
+                result.Add(cliente);
+            }
+
+            return result;
+        }
+
+        public List<ClienteBO> ClientePorId(int id)
+        {
+            return this.CarregarCliente(new ClienteDAO().ClientePorId(id));
+        }
+
+        public List<ClienteBO> ClientePorNome(string nome)
+        {
+            return this.CarregarCliente(new ClienteDAO().ClientePorNome(nome));
         }
 
         public bool SincronizarClientes(out string msgErro)

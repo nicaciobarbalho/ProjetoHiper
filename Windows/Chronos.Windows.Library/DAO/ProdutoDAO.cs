@@ -20,9 +20,9 @@ namespace Chronos.Windows.Library.DAO
 
                 var cmd = new SqlCommand(query.ToString(), conn);
 
-                cmd.Parameters.AddWithValue("nome", produto.Nome);
-                cmd.Parameters.AddWithValue("preco", produto.Preco);
-                cmd.Parameters.AddWithValue("sincronizar", produto.Sincronizar);
+                cmd.Parameters.AddWithValue("@nome", produto.Nome);
+                cmd.Parameters.AddWithValue("@preco", produto.Preco);
+                cmd.Parameters.AddWithValue("@sincronizar", produto.Sincronizar);
 
                 return cmd.ExecuteNonQuery();
             }
@@ -38,6 +38,42 @@ namespace Chronos.Windows.Library.DAO
                 conn.Open();
 
                 var cmd = new SqlCommand(query.ToString(), conn);
+
+                var dtResult = new DataTable();
+                dtResult.Load(cmd.ExecuteReader());
+                return dtResult;
+            }
+        }
+
+        public DataTable ProdutoPorNome(string nome)
+        {
+            var query = new StringBuilder();
+            query.Append("SELECT id, nome, preco FROM produto WHERE UPPER(nome) LIKE UPPER(@nome)");
+
+            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Chronos.Windows.Connection"].ToString()))
+            {
+                conn.Open();
+
+                var cmd = new SqlCommand(query.ToString(), conn);
+                cmd.Parameters.AddWithValue("@nome", "%" + nome + "%");
+
+                var dtResult = new DataTable();
+                dtResult.Load(cmd.ExecuteReader());
+                return dtResult;
+            }
+        }
+
+        public DataTable ProdutoPorId(int id)
+        {
+            var query = new StringBuilder();
+            query.Append("SELECT id, nome, preco FROM produto WHERE id = @id");
+
+            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Chronos.Windows.Connection"].ToString()))
+            {
+                conn.Open();
+
+                var cmd = new SqlCommand(query.ToString(), conn);
+                cmd.Parameters.AddWithValue("@id", id);
 
                 var dtResult = new DataTable();
                 dtResult.Load(cmd.ExecuteReader());
@@ -73,7 +109,7 @@ namespace Chronos.Windows.Library.DAO
 
                 var cmd = new SqlCommand(query.ToString(), conn);
 
-                cmd.Parameters.AddWithValue("id", idProduto);
+                cmd.Parameters.AddWithValue("@id", idProduto);
 
                 cmd.ExecuteNonQuery();
             }

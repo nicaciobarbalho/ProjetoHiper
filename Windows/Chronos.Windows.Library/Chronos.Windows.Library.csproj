@@ -49,10 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BO\ClienteBO.cs" />
+    <Compile Include="BO\PedidoItemBO.cs" />
     <Compile Include="BO\ProdutoBO.cs" />
     <Compile Include="CO\ClienteCO.cs" />
+    <Compile Include="BO\PedidoBO.cs" />
+    <Compile Include="CO\PedidoCO.cs" />
+    <Compile Include="CO\PedidoItemCO.cs" />
     <Compile Include="CO\ProdutoCO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\PedidoDAO.cs" />
+    <Compile Include="DAO\PedidoItemDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Validacao.cs" />

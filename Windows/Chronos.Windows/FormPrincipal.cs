@@ -39,5 +39,11 @@ namespace Chronos.Windows
             var formSincronizacao = new FormSincronizacao();
             formSincronizacao.ShowDialog();
         }
+
+        private void pedidoIncluirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formPedido = new FormPedido();
+            formPedido.ShowDialog();
+        }
     }
 }

@@ -63,6 +63,38 @@ namespace Chronos.Windows.Library.CO
             return result;
         }
 
+        private List<ProdutoBO> CarregarProduto(DataTable produtos)
+        {
+            var result = new List<ProdutoBO>();
+
+            foreach (DataRow dr in produtos.Rows)
+            {
+                var produto = new ProdutoBO();
+                produto.Id = int.Parse(dr["id"].ToString());
+                produto.Nome = dr["nome"].ToString();
+       
+         produto.Preco = decimal.Parse(dr["preco"].ToString());
+                result.Add(produto);
+            }
+
+            return result;
+        }
+
+        public List<ProdutoBO> ProdutoPorNome(string nome)
+        {
+            return this.CarregarProduto(new ProdutoDAO().ProdutoPorNome(nome));
+        }
+
+        public List<ProdutoBO> Produtos()
+        {
+            return this.CarregarProduto(new ProdutoDAO().Listar());
+        }
+
+        public List<ProdutoBO> ProdutoPorId(int id)
+        {
+            return this.CarregarProduto(new ProdutoDAO().ProdutoPorId(id));
+        }
+
         public bool SincronizarProdutos(out string msgErro)
         {
             msgErro = "";

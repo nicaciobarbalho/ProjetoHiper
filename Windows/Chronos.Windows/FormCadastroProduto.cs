@@ -18,7 +18,7 @@ namespace Chronos.Windows
 
             var produto = new ProdutoBO();
             produto.Nome = txtNome.Text;
-            produto.Preco = double.Parse(txtPreco.Text);
+            produto.Preco = decimal.Parse(txtPreco.Text);
             produto.Sincronizar = true;
 
             var sucesso = new ProdutoCO().Adicionar(produto, out msgErro);

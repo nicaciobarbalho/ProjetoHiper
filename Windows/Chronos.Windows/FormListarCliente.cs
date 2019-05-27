@@ -13,7 +13,7 @@ namespace Chronos.Windows
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
-            
+            this.Close();            
         }
 
         private void FormListarCliente_Load(object sender, EventArgs e)
