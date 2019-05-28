@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data;
 using System.Net;
 using System.Net.Http;
+using System.Linq;
 
 namespace Chronos.Windows.Library.CO
 {
@@ -49,9 +50,9 @@ namespace Chronos.Windows.Library.CO
             return false;
         }
 
-        public DataTable Listar()
+        public List<ClienteBO> Listar()
         {
-            return new ClienteDAO().Listar();
+            return this.CarregarCliente(new ClienteDAO().Listar());
         }
 
         private List<ClienteDto> GetClientesSincronizacao()
@@ -98,9 +99,9 @@ namespace Chronos.Windows.Library.CO
             return result;
         }
 
-        public List<ClienteBO> ClientePorId(int id)
+        public ClienteBO ClientePorId(int id)
         {
-            return this.CarregarCliente(new ClienteDAO().ClientePorId(id));
+            return this.CarregarCliente(new ClienteDAO().ClientePorId(id)).FirstOrDefault();
         }
 
         public List<ClienteBO> ClientePorNome(string nome)

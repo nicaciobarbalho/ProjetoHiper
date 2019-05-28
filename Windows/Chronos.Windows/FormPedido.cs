@@ -172,10 +172,23 @@ namespace Chronos.Windows
             txtTotaisValorLiquido.Text = "";
         }
 
+        private void LimparGridViewProdutos()
+        {
+            this.CarregarItens(new List<PedidoItemBO>());
+        }
+
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-
-            this.id = 0;           
+            if (this.id > 0)
+            {
+                new PedidoCO().AtualizarSituacao(this.id, 2);
+                this.id = 0;
+                this.LimparCliente();
+                this.LimparProduto();
+                this.LimparGridViewProdutos();
+                this.LimparTotais();
+                this.HabilitaControles();
+            }
         }
     }
 }

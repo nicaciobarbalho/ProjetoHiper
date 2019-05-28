@@ -25,3 +25,25 @@ CREATE TABLE [Produto] (
 	Preco decimal(12, 2) NOT NULL,
     CONSTRAINT PK_Produto PRIMARY KEY (Id)
 );
+
+CREATE TABLE [dbo].[Pedido] (
+    [Id]            INT             NOT NULL,
+    [ClienteId]     INT             NOT NULL,
+    [ValorBruto]    DECIMAL (10, 2) NOT NULL,
+    [ValorLiquido]  DECIMAL (10, 2) NOT NULL,
+    [ValorDesconto] DECIMAL (10, 2) CONSTRAINT [DF_pedido_valor_desconto] DEFAULT ((0)) NOT NULL,
+    CONSTRAINT [PK_Pedido] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[PedidoItem] (
+    [Id]            INT             NOT NULL,
+    [PedidoId]      INT             NOT NULL,
+    [ProdutoId]     INT             NOT NULL,
+    [Quantidade]    DECIMAL (10, 2) NOT NULL,
+    [ValorUnitario] DECIMAL (10, 2) NOT NULL,
+    [ValorBruto]    DECIMAL (10, 2) NOT NULL,
+    [ValorLiquido]  DECIMAL (10, 2) NOT NULL,
+    [ValorDesconto] DECIMAL (10, 2) DEFAULT ((0)) NOT NULL,
+    CONSTRAINT [PK_PedidoItem] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+

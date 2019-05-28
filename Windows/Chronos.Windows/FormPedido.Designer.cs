@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNome = new System.Windows.Forms.Label();
             this.cboCliente = new System.Windows.Forms.ComboBox();
             this.gbItem = new System.Windows.Forms.GroupBox();
@@ -52,6 +52,12 @@
             this.cboProduto = new System.Windows.Forms.ComboBox();
             this.lbProduto = new System.Windows.Forms.Label();
             this.grvProdutos = new System.Windows.Forms.DataGridView();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorBruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorLiquido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbProdutos = new System.Windows.Forms.GroupBox();
             this.gbTotais = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,12 +68,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorBruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorLiquido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvProdutos)).BeginInit();
             this.gbProdutos.SuspendLayout();
@@ -283,7 +283,6 @@
             // grvProdutos
             // 
             this.grvProdutos.AllowUserToAddRows = false;
-            this.grvProdutos.AllowUserToDeleteRows = false;
             this.grvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nome,
@@ -298,6 +297,67 @@
             this.grvProdutos.ReadOnly = true;
             this.grvProdutos.Size = new System.Drawing.Size(713, 122);
             this.grvProdutos.TabIndex = 4;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Produto";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Nome.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Nome.HeaderText = "Produto";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 200;
+            // 
+            // ValorUnitario
+            // 
+            this.ValorUnitario.DataPropertyName = "ValorUnitario";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            this.ValorUnitario.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ValorUnitario.HeaderText = "V. Unit";
+            this.ValorUnitario.Name = "ValorUnitario";
+            this.ValorUnitario.ReadOnly = true;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.DataPropertyName = "Quantidade";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.Quantidade.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Quantidade.HeaderText = "Qtd";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            // 
+            // ValorDesconto
+            // 
+            this.ValorDesconto.DataPropertyName = "ValorDesconto";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            this.ValorDesconto.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ValorDesconto.HeaderText = "V. Desc";
+            this.ValorDesconto.Name = "ValorDesconto";
+            this.ValorDesconto.ReadOnly = true;
+            this.ValorDesconto.Width = 70;
+            // 
+            // ValorBruto
+            // 
+            this.ValorBruto.DataPropertyName = "ValorBruto";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this.ValorBruto.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ValorBruto.HeaderText = "V. Bruto";
+            this.ValorBruto.Name = "ValorBruto";
+            this.ValorBruto.ReadOnly = true;
+            // 
+            // ValorLiquido
+            // 
+            this.ValorLiquido.DataPropertyName = "ValorLiquido";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this.ValorLiquido.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ValorLiquido.HeaderText = "V. Líquido";
+            this.ValorLiquido.Name = "ValorLiquido";
+            this.ValorLiquido.ReadOnly = true;
             // 
             // gbProdutos
             // 
@@ -426,67 +486,6 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Produto";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Nome.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Nome.HeaderText = "Produto";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 200;
-            // 
-            // ValorUnitario
-            // 
-            this.ValorUnitario.DataPropertyName = "ValorUnitario";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "N2";
-            this.ValorUnitario.DefaultCellStyle = dataGridViewCellStyle14;
-            this.ValorUnitario.HeaderText = "V. Unit";
-            this.ValorUnitario.Name = "ValorUnitario";
-            this.ValorUnitario.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.DataPropertyName = "Quantidade";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "N2";
-            this.Quantidade.DefaultCellStyle = dataGridViewCellStyle15;
-            this.Quantidade.HeaderText = "Qtd";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            // 
-            // ValorDesconto
-            // 
-            this.ValorDesconto.DataPropertyName = "ValorDesconto";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "N2";
-            this.ValorDesconto.DefaultCellStyle = dataGridViewCellStyle16;
-            this.ValorDesconto.HeaderText = "V. Desc";
-            this.ValorDesconto.Name = "ValorDesconto";
-            this.ValorDesconto.ReadOnly = true;
-            this.ValorDesconto.Width = 70;
-            // 
-            // ValorBruto
-            // 
-            this.ValorBruto.DataPropertyName = "ValorBruto";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "N2";
-            this.ValorBruto.DefaultCellStyle = dataGridViewCellStyle17;
-            this.ValorBruto.HeaderText = "V. Bruto";
-            this.ValorBruto.Name = "ValorBruto";
-            this.ValorBruto.ReadOnly = true;
-            // 
-            // ValorLiquido
-            // 
-            this.ValorLiquido.DataPropertyName = "ValorLiquido";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "N2";
-            this.ValorLiquido.DefaultCellStyle = dataGridViewCellStyle18;
-            this.ValorLiquido.HeaderText = "V. Líquido";
-            this.ValorLiquido.Name = "ValorLiquido";
-            this.ValorLiquido.ReadOnly = true;
-            // 
             // FormPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -503,6 +502,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "FormPedido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar novo pedido";
             this.gbItem.ResumeLayout(false);
             this.gbItem.PerformLayout();

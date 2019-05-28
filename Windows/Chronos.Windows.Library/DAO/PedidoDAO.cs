@@ -52,8 +52,8 @@ namespace Chronos.Windows.Library.DAO
                 var cmd = new SqlCommand(query.ToString(), conn);
 
                 cmd.Parameters.AddWithValue("@valor_bruto", pedido.ValorBruto);
-                cmd.Parameters.AddWithValue("@valor_liquido", pedido.ValorDesconto);
-                cmd.Parameters.AddWithValue("@valor_desconto", pedido.ValorLiquido);
+                cmd.Parameters.AddWithValue("@valor_liquido", pedido.ValorLiquido);
+                cmd.Parameters.AddWithValue("@valor_desconto", pedido.ValorDesconto);
                 cmd.Parameters.AddWithValue("@id", pedido.Id);
 
                 cmd.ExecuteNonQuery();
@@ -90,6 +90,23 @@ namespace Chronos.Windows.Library.DAO
 
                 var cmd = new SqlCommand(query.ToString(), conn);
                 cmd.Parameters.AddWithValue("id", id);
+
+                var dtResult = new DataTable();
+                dtResult.Load(cmd.ExecuteReader());
+                return dtResult;
+            }
+        }
+
+        public DataTable Listar()
+        {
+            var query = new StringBuilder();
+            query.Append("SELECT id, cliente_id, valor_bruto, valor_liquido, valor_desconto, pedido_situacao_id, sincronizar FROM pedido");
+
+            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Chronos.Windows.Connection"].ToString()))
+            {
+                conn.Open();
+
+                var cmd = new SqlCommand(query.ToString(), conn);
 
                 var dtResult = new DataTable();
                 dtResult.Load(cmd.ExecuteReader());

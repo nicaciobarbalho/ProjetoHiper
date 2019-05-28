@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormListarPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListarPedido.Designer.cs">
+      <DependentUpon>FormListarPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormListarPedido.resx">
+      <DependentUpon>FormListarPedido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPedido.resx">
       <DependentUpon>FormPedido.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,7 +163,7 @@
     <None Include="Resources\kairc3b3s-e-cronos.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Chronos.Windows.Componentes\Chronos.Windows.Componentes.csproj">
+    <ProjectReference Include="..\Chronos.Windows.Componentes\Chronos.Windows.Componentes.csproj">
       <Project>{fb6d0211-213d-4b34-8b42-d7dec830db34}</Project>
       <Name>Chronos.Windows.Componentes</Name>
     </ProjectReference>
@@ -162,16 +171,6 @@
       <Project>{c6d10281-2bd4-4fad-94e9-6bc71fc86838}</Project>
       <Name>Chronos.Windows.Library</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="hiper.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="hiper_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>hiper.mdf</DependentUpon>
-    </Content>
-    <Content Include="Lista de TAREFAS - Correções de bug%27s.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

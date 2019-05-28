@@ -10,7 +10,7 @@ namespace Chronos.Web.Ddd.Domain.Pedidos
         {
             base.SetId(id);
             this.SetPedidoId(pedidoId);
-            this.SetProdutoId(pedidoId);
+            this.SetProdutoId(produtoId);
             this.SetQuantidade(quantidade);
             this.SetValorUnitario(valorUnitario);
             this.SetValorBruto(valorBruto);
@@ -30,9 +30,9 @@ namespace Chronos.Web.Ddd.Domain.Pedidos
         {
             this.PedidoId = pedidoId;
         }
-        public void SetProdutoId(int pedidoId)
+        public void SetProdutoId(int produtoId)
         {
-            this.PedidoId = pedidoId;
+            this.ProdutoId = produtoId;
         }
 
         public void SetQuantidade(decimal quantidade)

@@ -60,7 +60,13 @@ namespace Chronos.Windows.Library.DAO
         public DataTable PedidoItemPendentesSincronizacao(int pedidoId)
         {
             var query = new StringBuilder();
-            query.Append("SELECT pi.id, pi.pedido_id, pi.produto_id, pi.quantidade, pi.valor_unitario, pi.valor_bruto, pi.valor_liquido, pi.valor_desconto FROM pedido p INNER JOIN pedido_item pi ON p.id = pi.pedido_id WHERE p.sincronizar = 1 AND p.pedido_situacao_id = 2 AND pi.pedido_id = @pedido_id");
+            query.Append(@"SELECT pi.id, pi.pedido_id, pi.produto_id, 
+                           pi.quantidade, pi.valor_unitario, pi.valor_bruto, 
+                           pi.valor_liquido, pi.valor_desconto 
+                           FROM pedido p INNER JOIN pedido_item pi ON p.id = pi.pedido_id 
+                           WHERE p.sincronizar = 1 
+                           AND p.pedido_situacao_id = 2 
+                           AND pi.pedido_id = @pedido_id");
 
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Chronos.Windows.Connection"].ToString()))
             {

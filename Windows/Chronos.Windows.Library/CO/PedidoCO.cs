@@ -21,19 +21,37 @@ namespace Chronos.Windows.Library.CO
 
         public PedidoBO PedidoPorId(int id)
         {
-            var pedido = new PedidoBO();
+            return this.CarregarPedidos(new PedidoDAO().PedidoPorId(id)).FirstOrDefault();
+        }
 
-            foreach (DataRow dr in new PedidoDAO().PedidoPorId(id).Rows)
+        private List<PedidoBO> CarregarPedidos(DataTable pedidos)
+        {
+            var result = new List<PedidoBO>();
+
+            foreach (DataRow dr in pedidos.Rows)
             {
+                var pedido = new PedidoBO();
                 pedido.Id = int.Parse(dr["id"].ToString());
                 pedido.ClienteId = int.Parse(dr["cliente_id"].ToString());
                 pedido.ValorBruto = decimal.Parse(dr["valor_bruto"].ToString());
                 pedido.ValorLiquido = decimal.Parse(dr["valor_liquido"].ToString());
                 pedido.ValorDesconto = decimal.Parse(dr["valor_desconto"].ToString());
-                pedido.PedidoSituacaoId = int.Parse(dr["pedido_situacao_id"].ToString());                
+                pedido.PedidoSituacaoId = int.Parse(dr["pedido_situacao_id"].ToString());
+
+                result.Add(pedido);
             }
 
-            return pedido;
+            return result;
+        }
+
+        public void AtualizarSituacao(int id, int situacao = 1)
+        {
+            new PedidoDAO().AtualizarSituacao(id, situacao);
+        }
+
+        public List<PedidoBO> Listar()
+        {
+            return this.CarregarPedidos( new PedidoDAO().Listar());
         }
 
         private List<PedidoDto> GetPedidosSincronizacao()

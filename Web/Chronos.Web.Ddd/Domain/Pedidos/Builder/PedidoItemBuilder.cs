@@ -14,11 +14,11 @@ namespace Chronos.Web.Ddd.Domain.Pedidos.Builder
         public decimal ValorLiquido { get; set; }
         public decimal ValorDesconto { get; set; }
 
-        public override PedidoItem Build() => new PedidoItem(Id, ProdutoId, ProdutoId, Quantidade, ValorUnitario, ValorBruto, ValorLiquido, ValorDesconto);
+        public override PedidoItem Build() => new PedidoItem(Id, PedidoId, ProdutoId, Quantidade, ValorUnitario, ValorBruto, ValorLiquido, ValorDesconto);
 
         public PedidoItemBuilder ComPedidoId(int pedidoId)
         {
-            this.ValorBruto = pedidoId;
+            this.PedidoId = pedidoId;
             return this;
         }
 

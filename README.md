@@ -11,7 +11,8 @@ ANTES DE COMEÇAR:
 
 Execute os scripts de criação de base em seu SQL Server ou LocalDB, de sua preferência.
 Altere os 3 arquivos de configuração das aplicações (Windows, API e MVC), atualizando a connection string para os bancos criados.
-	
+Alterar a URL da API no projeto Chronos.Windows no arquivo App.config.
+
 --
 
 OBJETIVOS:

@@ -45,5 +45,11 @@ namespace Chronos.Windows
             var formPedido = new FormPedido();
             formPedido.ShowDialog();
         }
+
+        private void pedidoListarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formPedido = new FormListarPedido();
+            formPedido.ShowDialog();
+        }
     }
 }
