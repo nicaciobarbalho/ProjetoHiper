@@ -14,7 +14,7 @@ namespace Chronos.Windows.Library.BO
         public decimal ValorLiquido { get; set; }
         public decimal ValorDesconto { get; set; }
         public int PedidoSituacaoId { get; set; }
+        public bool Sincronizar { get; set; }
 
-        
     }
 }

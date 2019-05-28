@@ -109,6 +109,7 @@ namespace Chronos.Windows
                 var pedido = new PedidoBO();
                 pedido.Id = this.id;
                 pedido.ClienteId = cliente.Id;
+                pedido.Sincronizar = true;
 
                 var pedidoItem = new PedidoItemBO();
                 pedidoItem.Id = 0;

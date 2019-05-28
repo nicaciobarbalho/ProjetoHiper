@@ -15,8 +15,8 @@ namespace Chronos.Windows.Library.DAO
         public int Adicionar(PedidoBO pedido)
         {
             var query = new StringBuilder();
-            query.Append("INSERT INTO pedido (cliente_id, valor_bruto, valor_liquido, valor_desconto, pedido_situacao_id) ");
-            query.Append("VALUES (@cliente_id, @valor_bruto, @valor_liquido, @valor_desconto, @pedido_situacao_id); SELECT SCOPE_IDENTITY();");
+            query.Append("INSERT INTO pedido (cliente_id, valor_bruto, valor_liquido, valor_desconto, pedido_situacao_id, sincronizar) ");
+            query.Append("VALUES (@cliente_id, @valor_bruto, @valor_liquido, @valor_desconto, @pedido_situacao_id, @sincronizar); SELECT SCOPE_IDENTITY();");
 
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Chronos.Windows.Connection"].ToString()))
             {
@@ -29,6 +29,7 @@ namespace Chronos.Windows.Library.DAO
                 cmd.Parameters.AddWithValue("@valor_liquido", pedido.ValorLiquido);
                 cmd.Parameters.AddWithValue("@valor_desconto", pedido.ValorDesconto);
                 cmd.Parameters.AddWithValue("@pedido_situacao_id", pedido.PedidoSituacaoId);
+                cmd.Parameters.AddWithValue("@sincronizar", pedido.Sincronizar);
 
                 int id = Convert.ToInt32(cmd.ExecuteScalar());
                 //cmd.ExecuteNonQuery();
@@ -81,7 +82,7 @@ namespace Chronos.Windows.Library.DAO
         public DataTable PedidoPorId(int id)
         {
             var query = new StringBuilder();
-            query.Append("SELECT id, cliente_id, valor_bruto, valor_liquido, valor_desconto, pedido_situacao_id FROM pedido WHERE id=@id ");
+            query.Append("SELECT id, cliente_id, valor_bruto, valor_liquido, valor_desconto, pedido_situacao_id, sincronizar FROM pedido WHERE id=@id ");
 
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Chronos.Windows.Connection"].ToString()))
             {
@@ -93,6 +94,40 @@ namespace Chronos.Windows.Library.DAO
                 var dtResult = new DataTable();
                 dtResult.Load(cmd.ExecuteReader());
                 return dtResult;
+            }
+        }
+
+        public DataTable PedidoPendentesSincronizacao()
+        {
+            var query = new StringBuilder();
+            query.Append("SELECT id, cliente_id, valor_bruto, valor_liquido, valor_desconto, pedido_situacao_id, sincronizar FROM pedido WHERE sincronizar = 1 AND pedido_situacao_id = 2 ");
+
+            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Chronos.Windows.Connection"].ToString()))
+            {
+                conn.Open();
+
+                var cmd = new SqlCommand(query.ToString(), conn);
+
+                var dtResult = new DataTable();
+                dtResult.Load(cmd.ExecuteReader());
+                return dtResult;
+            }
+        }
+
+        public void AtualizarPedidoSincronizado(int id)
+        {
+            var query = new StringBuilder();
+            query.Append("UPDATE pedido SET sincronizar = 0 WHERE id = @id ");
+
+            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Chronos.Windows.Connection"].ToString()))
+            {
+                conn.Open();
+
+                var cmd = new SqlCommand(query.ToString(), conn);
+
+                cmd.Parameters.AddWithValue("id", id);
+
+                cmd.ExecuteNonQuery();
             }
         }
     }

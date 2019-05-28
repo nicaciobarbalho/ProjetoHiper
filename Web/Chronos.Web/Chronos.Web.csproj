@@ -175,6 +175,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,6 +185,10 @@
     <Compile Include="ViewModel\Base\BaseGridViewModel.cs" />
     <Compile Include="ViewModel\Clientes\ClienteGridDataViewModel.cs" />
     <Compile Include="ViewModel\Clientes\ClienteGridViewModel.cs" />
+    <Compile Include="ViewModel\Pedidos\PedidoItemGridDataViewModel.cs" />
+    <Compile Include="ViewModel\Pedidos\PedidoItemGridViewModel.cs" />
+    <Compile Include="ViewModel\Pedidos\PedidosGridDataViewModel.cs" />
+    <Compile Include="ViewModel\Pedidos\PedidosGridViewModel.cs" />
     <Compile Include="ViewModel\Produtos\ProdutoGridDataViewModel.cs" />
     <Compile Include="ViewModel\Produtos\ProdutoGridViewModel.cs" />
   </ItemGroup>
@@ -220,6 +225,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Produto\Index.cshtml" />
+    <Content Include="Views\Pedido\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Dtos\Chronos.Dtos\Chronos.Dtos.csproj">

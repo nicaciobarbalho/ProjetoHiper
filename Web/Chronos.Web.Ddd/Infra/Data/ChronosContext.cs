@@ -1,4 +1,5 @@
 ﻿using Chronos.Web.Ddd.Domain.Clientes;
+using Chronos.Web.Ddd.Domain.Pedidos;
 using Chronos.Web.Ddd.Domain.Produtos;
 using System.Data.Entity;
 using System.Reflection;
@@ -14,6 +15,9 @@ namespace Chronos.Web.Ddd.Infra.Data
 
         public IDbSet<Cliente> Clientes { get; set; }
         public IDbSet<Produto> Produtos { get; set; }
+
+        public IDbSet<Pedido> Pedidos { get; set; }
+        public IDbSet<PedidoItem> PedidoItens { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

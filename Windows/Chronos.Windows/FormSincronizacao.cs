@@ -56,6 +56,13 @@ namespace Chronos.Windows
                     lblStatus.Invoke(new AtualizarLabelCallback(this.AtualizarLabel), $"Erro na sincronização de clientes: {msgErro}");
                 }
 
+                var sincronizouPedidos = new PedidoCO().SincronizarPedidos(out msgErro);
+
+                if (!sincronizouPedidos)
+                {
+                    lblStatus.Invoke(new AtualizarLabelCallback(this.AtualizarLabel), $"Erro na sincronização de pedidos: {msgErro}");
+                }
+
                 lblStatus.Invoke(new AtualizarLabelCallback(this.AtualizarLabel), "Finalizado :)");
 
                 btnFechar.Invoke(new AtualizarBotaFechar(this.HabilitarBotaFechar));
